@@ -1,4 +1,4 @@
-package com.truongdx.domain;
+package com.travel.domain;
 
 import java.io.Serializable;
 import java.util.Set;

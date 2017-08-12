@@ -1,7 +1,8 @@
-package com.truongdx.domain;
+package com.travel.domain;
+
+import static org.junit.Assert.fail;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,39 +11,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.engine.profile.Fetch;
-
 @Entity
-@Table(name = "region")
-public class Region implements Serializable{
+@Table(name = "guide")
+public class Guide implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "region_id", nullable = false)
+	@Column(name = "guide_id", nullable = false)
 	private int id;
 	
-	@Column(name = "region_name", nullable = false)
-	private String name;
+	@Column(name = "guide_name")
+	private String name; 
 	
-	@Column(name = "region_related")
-	private int related;
+	@Column(name = "guide_content")
+	private String content;
 	
-	@Column(name = "region_isactive")
+	@Column(name = "guide_isActive")
 	private boolean active;
 	
-	@Column(name = "region_isdelete")
+	@Column(name = "guide_isDelte")
 	private boolean delete;
 	
-	@Column(name = "region_description")
+	@Column(name = "guide_description")
 	private String description;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "region")
-	private Set<Country> countries;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 	
+	public Guide() {
+	}
 	
 	public int getId() {
 		return id;
@@ -56,11 +57,11 @@ public class Region implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getRelated() {
-		return related;
+	public String getContent() {
+		return content;
 	}
-	public void setRelated(int related) {
-		this.related = related;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public boolean isActive() {
 		return active;
@@ -80,16 +81,14 @@ public class Region implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Set<Country> getCountries() {
-		return countries;
-	}
-	public void setCountries(Set<Country> countries) {
-		this.countries = countries;
-	}
-	
 	
 }

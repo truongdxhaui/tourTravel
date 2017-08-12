@@ -1,4 +1,4 @@
-package com.truongdx.domain;
+package com.travel.domain;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -12,42 +12,37 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "country")
-public class Country implements Serializable{
-	private static final long serialVersionUID = 1L;
 
+@Entity
+@Table(name = "category")
+public class Category implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "country_id", nullable = false)
+	@Column(name = "category_id", nullable = false)
 	private int id;
 	
-	@Column (name = "country_name", nullable = false)
+	@Column(name = "category_name")
 	private String name;
 	
-	@Column(name = "country_related")
+	@Column(name = "category_related")
 	private int related;
 	
-	@Column(name = "country_isActive")
+	@Column(name = "category_isActive")
 	private boolean active;
 	
-	@Column(name = "country_isDelete")
+	@Column(name = "category_isDelete")
 	private boolean delete;
 	
-	@Column(name = "country_description")
+	@Column(name = "category_description")
 	private String description;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Region region;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "country_tour", joinColumns = @JoinColumn(name = "country_id"), inverseJoinColumns = @JoinColumn(name = "tour_id"))
+	@JoinTable(name = "category_tour", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "tour_id"))
 	private Set<Tour> tours;
-	
 	
 	public int getId() {
 		return id;
@@ -61,6 +56,7 @@ public class Country implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public int getRelated() {
 		return related;
 	}
@@ -84,13 +80,6 @@ public class Country implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Region getRegion() {
-		return region;
-	}
-	public void setRegion(Region region) {
-		this.region = region;
 	}
 	public Set<Tour> getTours() {
 		return tours;

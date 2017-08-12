@@ -1,8 +1,7 @@
-package com.truongdx.domain;
-
-import static org.junit.Assert.fail;
+package com.travel.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,40 +9,45 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "guide")
-public class Guide implements Serializable {
+@Table(name = "country")
+public class Country implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "guide_id", nullable = false)
+	@Column(name = "country_id", nullable = false)
 	private int id;
 	
-	@Column(name = "guide_name")
-	private String name; 
+	@Column (name = "country_name", nullable = false)
+	private String name;
 	
-	@Column(name = "guide_content")
-	private String content;
+	@Column(name = "country_related")
+	private int related;
 	
-	@Column(name = "guide_isActive")
+	@Column(name = "country_isActive")
 	private boolean active;
 	
-	@Column(name = "guide_isDelte")
+	@Column(name = "country_isDelete")
 	private boolean delete;
 	
-	@Column(name = "guide_description")
+	@Column(name = "country_description")
 	private String description;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	private User user;
+	private Region region;
 	
-	public Guide() {
-	}
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "country_tour", joinColumns = @JoinColumn(name = "country_id"), inverseJoinColumns = @JoinColumn(name = "tour_id"))
+	private Set<Tour> tours;
+	
 	
 	public int getId() {
 		return id;
@@ -57,11 +61,11 @@ public class Guide implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getContent() {
-		return content;
+	public int getRelated() {
+		return related;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setRelated(int related) {
+		this.related = related;
 	}
 	public boolean isActive() {
 		return active;
@@ -81,14 +85,23 @@ public class Guide implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public User getUser() {
-		return user;
+
+	public Region getRegion() {
+		return region;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+	public Set<Tour> getTours() {
+		return tours;
+	}
+	public void setTours(Set<Tour> tours) {
+		this.tours = tours;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
 	
 }
