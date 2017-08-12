@@ -1,6 +1,7 @@
 package com.travel.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -27,10 +28,10 @@ public class DateTour extends MDomain implements Serializable{
 	private int id;
 	
 	@Column(name = "dateTour_startDate")
-	private String startDate;
+	private Date startDate;
 	
 	@Column(name = "dateTour_endDate")
-	private String endDate;
+	private Date endDate;
 	
 	@Column(name = "dateTour_avaiableSeat")
 	private int avaiableSeat;
@@ -53,16 +54,18 @@ public class DateTour extends MDomain implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getStartDate() {
+	
+	
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 	public int getAvaiableSeat() {

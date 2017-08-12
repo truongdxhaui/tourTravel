@@ -1,6 +1,7 @@
 package com.travel.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,7 +36,7 @@ public class Person extends MDomain implements Serializable {
 	private String fullName;
 	
 	@Column(name = "person_dob")
-	private String dob;
+	private Date dob;
 	
 	@Column(name = "person_gender")
 	private boolean gender;
@@ -91,10 +91,12 @@ public class Person extends MDomain implements Serializable {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public String getDob() {
+	
+	
+	public Date getDob() {
 		return dob;
 	}
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 	public boolean isGender() {

@@ -1,6 +1,7 @@
 package com.travel.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +37,7 @@ public class Order extends MDomain implements Serializable{
 	private int numOfTravel;
 	
 	@Column(name = "order_pdd")
-	private String pdd;
+	private Date pdd;
 	
 	@Column(name = "order_description")
 	private String description;
@@ -91,10 +92,12 @@ public class Order extends MDomain implements Serializable{
 	public void setNumOfTravel(int numOfTravel) {
 		this.numOfTravel = numOfTravel;
 	}
-	public String getPdd() {
+
+	
+	public Date getPdd() {
 		return pdd;
 	}
-	public void setPdd(String pdd) {
+	public void setPdd(Date pdd) {
 		this.pdd = pdd;
 	}
 	public String getDescription() {
