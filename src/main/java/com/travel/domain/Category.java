@@ -15,9 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name = "category")
-public class Category implements Serializable {
+public class Category extends MDomain implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	
 	@Id

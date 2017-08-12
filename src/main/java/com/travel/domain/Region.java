@@ -17,7 +17,7 @@ import org.hibernate.engine.profile.Fetch;
 
 @Entity
 @Table(name = "region")
-public class Region implements Serializable{
+public class Region extends MDomain implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id

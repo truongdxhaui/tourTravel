@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tour")
-public class Tour implements Serializable {
+public class Tour extends MDomain implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
