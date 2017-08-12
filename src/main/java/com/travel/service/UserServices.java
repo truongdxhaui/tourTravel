@@ -11,7 +11,7 @@ public class UserServices extends BaseServices<User> {
 	}
 
 	@Override
-	public ArrayList<User> getAllObje() {
+	public ArrayList<User> getAllObjet() {
 		// TODO Auto-generated method stub
 		return null;
 	}

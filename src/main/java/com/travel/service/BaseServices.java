@@ -9,7 +9,7 @@ public abstract class BaseServices<T> {
 	public BaseServices(Class<T> obj) {
         this.objectServices = obj;
     }
-	public abstract ArrayList<T> getAllObje();
+	public abstract ArrayList<T> getAllObjet();
 	public abstract T getObject(Object key_get);
 	public abstract boolean add(T instence);
 	public abstract boolean update(T instence);
