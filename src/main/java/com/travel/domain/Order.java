@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -25,12 +26,15 @@ public class Order extends MDomain implements Serializable{
 	private int id;
 	
 	@Column(name = "order_fullname")
+	@Size(min = 1 , max = 50)
 	private String fullname;
 	
 	@Column(name = "order_mobile")
+	@Size(min = 1 , max = 30)
 	private String mobile;
 	
 	@Column(name = "order_email")
+	@Size(min = 1 , max = 50)
 	private String email;
 	
 	@Column(name = "order_numOfTravel")
@@ -40,6 +44,7 @@ public class Order extends MDomain implements Serializable{
 	private Date pdd;
 	
 	@Column(name = "order_description")
+	@Size(min = 1 , max = 200)
 	private String description;
 	
 	@Column(name = "order_isPayment")

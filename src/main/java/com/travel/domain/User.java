@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
@@ -23,9 +24,11 @@ public class User extends MDomain implements Serializable {
 	private int id;
 
 	@Column(name = "user_username", nullable = false)
+	@Size(min = 1 , max = 20)
 	private String username;
 
 	@Column(name = "user_password", nullable = false)
+	@Size(min = 1 , max = 30)
 	private String password;
 
 	@Column(name = "user_isActive")

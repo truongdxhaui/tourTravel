@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 
@@ -27,6 +28,7 @@ public class Category extends MDomain implements Serializable  {
 	private int id;
 	
 	@Column(name = "category_name")
+	@Size(min = 1 , max = 30)
 	private String name;
 	
 	@Column(name = "category_related")
@@ -39,6 +41,7 @@ public class Category extends MDomain implements Serializable  {
 	private boolean delete;
 	
 	@Column(name = "category_description")
+	@Size(min = 1 , max = 200)
 	private String description;
 	
 	@ManyToMany(fetch = FetchType.LAZY)

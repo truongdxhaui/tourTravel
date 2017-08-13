@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "country")
@@ -27,6 +28,7 @@ public class Country extends MDomain implements Serializable{
 	private int id;
 	
 	@Column (name = "country_name", nullable = false)
+	@Size(min = 1 , max = 30)
 	private String name;
 	
 	@Column(name = "country_related")
@@ -39,6 +41,7 @@ public class Country extends MDomain implements Serializable{
 	private boolean delete;
 	
 	@Column(name = "country_description")
+	@Size(min = 1 , max = 200)
 	private String description;
 
 	@ManyToOne(fetch = FetchType.LAZY)

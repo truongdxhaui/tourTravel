@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -26,6 +27,7 @@ public class Picture extends MDomain implements Serializable{
 	private int id;
 	
 	@Column(name = "picture_name")
+	@Size(min = 1 , max = 100)
 	private String name;
 	
 	@Column(name = "picture_isActive")

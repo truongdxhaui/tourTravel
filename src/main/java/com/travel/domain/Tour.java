@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tour")
@@ -26,6 +27,7 @@ public class Tour extends MDomain implements Serializable {
 	private int id;
 	
 	@Column(name = "tour_name", nullable = false)
+	@Size(min = 1 , max = 100)
 	private String name;
 	
 	@Column(name = "tour_time")
@@ -41,7 +43,7 @@ public class Tour extends MDomain implements Serializable {
 	private boolean delete;
 	
 	@Column(name = "tour_price")
-	private String price;
+	private int price;
 	
 	@Column(name = "tour_seat")
 	private int seat;
@@ -124,11 +126,12 @@ public class Tour extends MDomain implements Serializable {
 		this.delete = delete;
 	}
 
-	public String getPrice() {
+
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

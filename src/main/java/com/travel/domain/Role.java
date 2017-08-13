@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "role")
@@ -37,6 +38,7 @@ public class Role extends MDomain implements Serializable{
 	private int role_id;
 	
 	@Column(name = "role_name", nullable = false)
+	@Size(min = 1 , max = 50)
 	private String role_name;
 	
 	@ManyToMany

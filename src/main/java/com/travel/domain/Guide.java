@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "guide")
@@ -25,6 +26,7 @@ public class Guide extends MDomain implements Serializable {
 	private int id;
 	
 	@Column(name = "guide_name")
+	@Size(min = 1 , max = 50)
 	private String name; 
 	
 	@Column(name = "guide_content")
@@ -37,6 +39,7 @@ public class Guide extends MDomain implements Serializable {
 	private boolean delete;
 	
 	@Column(name = "guide_description")
+	@Size(min = 1 , max = 200)
 	private String description;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

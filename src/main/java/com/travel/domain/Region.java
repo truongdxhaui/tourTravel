@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.engine.profile.Fetch;
 
@@ -26,6 +27,7 @@ public class Region extends MDomain implements Serializable{
 	private int id;
 	
 	@Column(name = "region_name", nullable = false)
+	@Size(min = 1 , max = 50)
 	private String name;
 	
 	@Column(name = "region_related")
@@ -38,6 +40,7 @@ public class Region extends MDomain implements Serializable{
 	private boolean delete;
 	
 	@Column(name = "region_description")
+	@Size(min = 1 , max = 200)
 	private String description;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "region")

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "person")
@@ -24,15 +25,19 @@ public class Person extends MDomain implements Serializable {
 	private int id;
 	
 	@Column(name = "person_midName")
+	@Size(min = 1 , max = 20)
 	private String midName;
 	
 	@Column(name = "person_firstName")
+	@Size(min = 1 , max = 20)
 	private String firstName;
 	
 	@Column(name = "person_lastName")
+	@Size(min = 1 , max = 20)
 	private String lastName;
 	
 	@Column(name = "person_fullname")
+	@Size(min = 1 , max = 60)
 	private String fullName;
 	
 	@Column(name = "person_dob")
@@ -42,18 +47,23 @@ public class Person extends MDomain implements Serializable {
 	private boolean gender;
 	
 	@Column(name = "person_email")
+	@Size(min = 1 , max = 50)
 	private String email;
 	
 	@Column(name = "person_mobile")
+	@Size(min = 1 , max = 30)
 	private String mobile;
 	
 	@Column(name = "person_passport")
+	@Size(min = 1 , max = 30)
 	private String passport;
 	
 	@Column(name = "person_facebook")
+	@Size(min = 1 , max = 100)
 	private String facebook;
 	
 	@Column(name = "person_address")
+	@Size(min = 1 , max = 100)
 	private String address;
 
 	@OneToMany(fetch  = FetchType.LAZY, mappedBy = "person")

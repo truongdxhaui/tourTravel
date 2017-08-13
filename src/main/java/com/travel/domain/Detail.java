@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -29,9 +30,11 @@ public class Detail extends MDomain implements Serializable {
 	private String content;
 	
 	@Column(name = "detail_title")
+	@Size(min = 1 , max = 100)
 	private String title;
 	
 	@Column(name = "detail_picture")
+	@Size(min = 1 , max = 100)
 	private String picture;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
