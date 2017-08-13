@@ -1,4 +1,4 @@
-package com.truongdx.gpms;
+package com.travel.gpms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
