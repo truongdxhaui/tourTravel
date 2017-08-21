@@ -20,12 +20,10 @@ public class Role extends MDomain implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	
-	public Set<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
+	
+	
+	public Role(@Size(min = 1, max = 50) String name) {
+		this.name = name;
 	}
 
 	public static long getSerialversionuid() {
@@ -35,11 +33,11 @@ public class Role extends MDomain implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	@Column(name = "role_id")
-	private int role_id;
+	private int id;
 	
 	@Column(name = "role_name", nullable = false)
 	@Size(min = 1 , max = 50)
-	private String role_name;
+	private String name;
 	
 	@ManyToMany
 	@JoinTable( name = "role_user", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
@@ -49,20 +47,29 @@ public class Role extends MDomain implements Serializable{
 	public Role() {
 	}
 	
-	public int getRole_id() {
-		return role_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setRole_id(int role_id) {
-		this.role_id = role_id;
+	public void setId(int role_id) {
+		this.id = role_id;
 	}
 
-	public String getRole_name() {
-		return role_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setRole_name(String role_name) {
-		this.role_name = role_name;
+	public void setName(String role_name) {
+		this.name = role_name;
 	}
+	
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
 
 }
