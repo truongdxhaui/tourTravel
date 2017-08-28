@@ -18,58 +18,58 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "tour")
 public class Tour extends MDomain implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "tour_id", nullable = false)
 	private int id;
-	
+
 	@Column(name = "tour_name", nullable = false)
-	@Size(min = 1 , max = 100)
+	@Size(min = 1, max = 100)
 	private String name;
-	
+
 	@Column(name = "tour_time")
-	private int time;
-	
+	@Size(min = 1, max = 50)
+	private String time;
+
 	@Column(name = "tour_quantity")
-	private int quantity;  
-	
+	private int quantity;
+
 	@Column(name = "tour_isActive")
 	private boolean active;
-	
+
 	@Column(name = "tour_isDelete")
 	private boolean delete;
-	
+
 	@Column(name = "tour_price")
 	private int price;
-	
+
 	@Column(name = "tour_seat")
 	private int seat;
-	
+
 	@Column(name = "tour_description")
 	private String description;
-	
+
 	@ManyToMany(mappedBy = "tours", fetch = FetchType.LAZY)
 	private Set<Country> countries;
-	
+
 	@ManyToMany(mappedBy = "tours", fetch = FetchType.LAZY)
 	private Set<Category> categories;
-	
-	@OneToMany(mappedBy= "tour", fetch = FetchType.LAZY)
+
+	@OneToMany(mappedBy = "tour", fetch = FetchType.LAZY)
 	private Set<Detail> details;
-	
+
 	@ManyToMany(mappedBy = "tours", fetch = FetchType.LAZY)
 	private Set<Picture> pictures;
-	
+
 	@OneToMany(mappedBy = "tour", fetch = FetchType.LAZY)
 	private Set<DateTour> dateTours;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
-	
-	
+
 	public User getUsers() {
 		return user;
 	}
@@ -94,12 +94,20 @@ public class Tour extends MDomain implements Serializable {
 		this.name = name;
 	}
 
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getQuantity() {
@@ -125,7 +133,6 @@ public class Tour extends MDomain implements Serializable {
 	public void setDelete(boolean delete) {
 		this.delete = delete;
 	}
-
 
 	public int getPrice() {
 		return price;
@@ -194,5 +201,5 @@ public class Tour extends MDomain implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

@@ -1,5 +1,6 @@
 package com.travel.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,13 +21,14 @@ import com.travel.service.*;
 
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService, UserService {
+@Transactional
+public class UserDetailsServiceImpl implements BaseServices<User>, UserDetailsService {
+
 
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
-	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username);
 		if (user == null) {
@@ -44,34 +46,36 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public Iterable<User> findAll() {
+	public ArrayList<User> getAllObjet() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> seach(String q) {
+	public User getObject(Object key_get) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User findOne(int id) {
+	public boolean add(User instence) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
-	public void save(User user) {
+	public boolean update(User instence) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
-	public void delete(int id) {
+	public boolean delete(User instence) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
+
+
 
 
 

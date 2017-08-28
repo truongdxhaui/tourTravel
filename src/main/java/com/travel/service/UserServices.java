@@ -2,13 +2,15 @@ package com.travel.service;
 
 import java.util.ArrayList;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.travel.domain.User;
 
-public class UserServices extends BaseServices<User> {
-
-	public UserServices() {
-		super(User.class);
-	}
+@Service
+@Transactional
+public class UserServices implements BaseServices<User> {
 
 	@Override
 	public ArrayList<User> getAllObjet() {

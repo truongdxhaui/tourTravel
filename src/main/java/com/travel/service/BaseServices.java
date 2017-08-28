@@ -4,13 +4,7 @@ import java.util.ArrayList;
 
 import antlr.collections.List;
 
-public abstract class BaseServices<T> {
-
-	private Class<T> services;
-
-	public BaseServices(Class<T> services) {
-		this.services = services;
-	}
+public interface BaseServices<T> {
 
 	public abstract ArrayList<T> getAllObjet();
 

@@ -28,7 +28,7 @@ public class User extends MDomain implements Serializable {
 	private String username;
 
 	@Column(name = "user_password", nullable = false)
-	@Size(min = 1 , max = 30)
+//	@Size(min = 1 , max = 30)
 	private String password;
 
 	@Column(name = "user_isActive")

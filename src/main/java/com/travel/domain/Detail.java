@@ -30,7 +30,7 @@ public class Detail extends MDomain implements Serializable {
 	private String content;
 	
 	@Column(name = "detail_title")
-	@Size(min = 1 , max = 100)
+	@Size(min = 1 , max = 150)
 	private String title;
 	
 	@Column(name = "detail_picture")

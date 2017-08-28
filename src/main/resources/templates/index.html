@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org">
 <!-- Mirrored from themes.iamabdus.com/star/1.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Apr 2017 01:44:39 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -174,7 +173,7 @@
 					<div class="col-xs-12">
 						<div class="sectionTitle">
 							<h2>
-								<span class="lightBg">Danh sách tour khuyển mại</span>
+								<span class="lightBg">Tour Khuyến Mãi</span>
 							</h2>
 							<p>Quisque lacus augue, blandit non est a, dictum malesuada
 								odio.</p>
@@ -182,7 +181,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-4 col-xs-12">
+					<div th:each="tour : ${list_tour}" class="col-sm-4 col-xs-12">
 						<div class="thumbnail deals">
 							<img src="img/home/deal/deal-01.jpg" alt="deal-image" /> <a
 								href="single-package-right-sidebar.html" class="pageLink"></a>
@@ -200,109 +199,19 @@
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 								</ul>
 								<ul class="list-inline duration">
-									<li>7 days</li>
-									<li>15 hrs</li>
-									<li>15 min</li>
+									<li th:text="${tour.time}"></li>
 								</ul>
 							</div>
 							<div class="caption">
 								<h4>
 									<a href="single-package-right-sidebar.html"
-										class="captionTitle">Suspendisse Blandit</a>
+										class="captionTitle" th:text="${tour.name}"></a>
 								</h4>
-								<p>Integer purus ex, dictum nec elementum eu, tristique vel
-									lectus. Donec rutrum lectus et pharetra egestas.</p>
+								<p th:text="${tour.description}"></p>
 								<div class="detailsInfo">
 									<h5>
-										<span>Start From</span> $299
-									</h5>
-									<ul class="list-inline detailsBtn">
-										<li><a href="single-package-fullwidth.html"
-											class="btn buttonTransparent">Details</a></li>
-										<li><a href='booking-1.html'
-											class="btn buttonTransparent">Book now</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<div class="thumbnail deals">
-							<img src="img/home/deal/deal-02.jpg" alt="deal-image" /> <a
-								href="single-package-fullwidth.html" class="pageLink"></a>
-							<div class="discountInfo">
-								<div class="discountOffer">
-									<h4>
-										Free <span>Gift</span>
-									</h4>
-								</div>
-								<ul class="list-inline rating homePage">
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-								</ul>
-								<ul class="list-inline duration">
-									<li>12 days</li>
-									<li>3 hrs</li>
-									<li>12 min</li>
-								</ul>
-							</div>
-							<div class="caption">
-								<h4>
-									<a href="single-package-fullwidth.html" class="captionTitle">Suspendisse
-										Eros Erat</a>
-								</h4>
-								<p>Proin convallis magna vel libero accumsan sollicitudin.
-									Quisque dapibus vitae turpis eu magna sagittis.</p>
-								<div class="detailsInfo">
-									<h5>
-										<span>Start From</span> $499
-									</h5>
-									<ul class="list-inline detailsBtn">
-										<li><a href="single-package-fullwidth.html"
-											class="btn buttonTransparent">Details</a></li>
-										<li><a data-toggle="modal" href='.html'
-											class="btn buttonTransparent">Inquiry</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<div class="thumbnail deals">
-							<img src="img/home/deal/deal-03.jpg" alt="deal-image" /> <a
-								href="single-package-left-sidebar.html" class="pageLink"></a>
-							<div class="discountInfo">
-								<div class="discountOffer">
-									<h4>
-										25% <span>OFF</span>
-									</h4>
-								</div>
-								<ul class="list-inline rating homePage">
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-								</ul>
-								<ul class="list-inline duration">
-									<li>17 days</li>
-									<li>13 hrs</li>
-									<li>18 min</li>
-								</ul>
-							</div>
-							<div class="caption">
-								<h4>
-									<a href="single-package-fullwidth.html" class="captionTitle">Quisque
-										Placerat Nunc</a>
-								</h4>
-								<p>Vivamus eu mattis nibh. Quisque eget ipsum at odio
-									fringilla consequat vel id erat. Suspendisse non feugiat mi.</p>
-								<div class="detailsInfo">
-									<h5>
-										<span>Start From</span> $399
+										<span>Start From</span>
+										<span th:text="${tour.price}"></span>
 									</h5>
 									<ul class="list-inline detailsBtn">
 										<li><a href="single-package-fullwidth.html"
@@ -318,7 +227,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="btnArea">
-							<a href="packages-list-left-sidebar.html"
+							<a href="/list_tour_sales_off"
 								class="btn buttonTransparent">view all</a>
 						</div>
 					</div>
