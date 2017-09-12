@@ -1,6 +1,8 @@
 package com.travel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,12 +15,6 @@ public class TravelTourApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TravelTourApplication.class, args);
-		
-//		TourServices ts = new TourServices();
-//		ArrayList<Tour> list = new ArrayList<>();
-//		list = ts.getAllObjet();
-//		for(Tour tour : list) {
-//			System.out.println(tour);
-//		}
+
 	}
 }

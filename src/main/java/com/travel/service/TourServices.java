@@ -1,6 +1,5 @@
 package com.travel.service;
 
-import static org.hamcrest.CoreMatchers.is;
 
 import java.util.ArrayList;
 
@@ -66,21 +65,4 @@ public class TourServices implements BaseServices<Tour> {
 		}
 		return list_tour;
 	}
-//	public ArrayList<Tour> list_tour() {
-//		ArrayList<Tour> list = new ArrayList<>();
-//		SessionFactory session_factory = null;
-//		Transaction transaction = null;
-//		try {
-//			String hql = "select * from tour";
-//			Session session = session_factory.openSession();
-//			transaction = session.beginTransaction();
-//			list = (ArrayList<Tour>) session.createQuery(hql).list();
-//			transaction.commit();
-//			return list;
-//		} catch (Exception e) {
-//			transaction.rollback();
-//			e.printStackTrace();
-//			return  null;
-//		}
-//	}
 }

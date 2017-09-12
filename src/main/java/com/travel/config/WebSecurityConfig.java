@@ -38,8 +38,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").hasRole("LECTURE")
                 .antMatchers("/admin").hasRole("ADMIN")
                 .and()
-//                .anyRequest().authenticated()
-//                .and()
             .formLogin()
             	.loginPage("/login")
             	.usernameParameter("username")

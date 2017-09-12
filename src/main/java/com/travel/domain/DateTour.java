@@ -16,6 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+/**
+ * @author THIEN-NVT
+ *
+ */
 @Entity
 @Table(name = "dateTour")
 public class DateTour extends MDomain implements Serializable{
@@ -32,6 +36,9 @@ public class DateTour extends MDomain implements Serializable{
 	
 	@Column(name = "dateTour_endDate")
 	private Date endDate;
+	
+	@Column(name = "dateTour_sales_off")
+	private int salesOff;
 	
 	@Column(name = "dateTour_avaiableSeat")
 	private int avaiableSeat;
@@ -67,6 +74,13 @@ public class DateTour extends MDomain implements Serializable{
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	
+	public int getSalesOff() {
+		return salesOff;
+	}
+	public void setSalesOff(int salesOff) {
+		this.salesOff = salesOff;
 	}
 	public int getAvaiableSeat() {
 		return avaiableSeat;
